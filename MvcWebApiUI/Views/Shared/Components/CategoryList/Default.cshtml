@@ -1,0 +1,20 @@
+﻿@model MvcWebUI.Models.CategoryListViewModel
+
+<h2>Category List</h2>
+<table class="table table-responsive">
+	<thead><a href="/product/index">All Products</a></thead>
+	@foreach (var category in Model.Categories)
+	{
+		var css = "table";
+		if (category.CategoryId == Model.CurrentCategory)
+		{
+			css += "-active";
+		}
+		<tr class="@css">
+		<td>@category.CategoryId</td>
+		<td><a href="/product/index?categoryId=@category.CategoryId">@category.CategoryName</a></td>
+		</tr>
+		
+	}
+
+</table>
